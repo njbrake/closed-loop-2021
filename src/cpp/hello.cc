@@ -1,18 +1,21 @@
 #include <napi.h>
-#include "new.h"
 
-static Napi::String Method(const Napi::CallbackInfo& info) {
-  Napi::Env env = info.Env();
-  auto thingy = Loopy::Closed();
-  auto result = thingy.getThing();
-  std::string yada = std::to_string(result);
-  return Napi::String::New(env, yada);
-}
 
+// This is what initializes the node addon api package and defines what the package exports.
+// It's pretty much boilerplate
 static Napi::Object Init(Napi::Env env, Napi::Object exports) {
+
+  // Define an export called hello that will invoke our HelloMethod static function.
   exports.Set(Napi::String::New(env, "hello"),
-              Napi::Function::New(env, Method));
+              Napi::Function::New(env, HelloMethod));
   return exports;
 }
 
+static Napi::String HelloMethod(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  return Napi::String::New(env, "hello");
+}
+
+
+// Define the module
 NODE_API_MODULE(hello, Init)

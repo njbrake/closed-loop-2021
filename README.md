@@ -1,7 +1,17 @@
 # closed-loop-2021
 Presentation for 3M | M*Modal Closed Loop 2021
 
-# This code is to support a node addon module, for extra speed!
+This code is to support a node addon module, for extra speed!
+
+# Quick Start
+
+docker build -t cl:latest .
+
+docker run -it -v $(pwd):/opt/closedLoop cl:latest bash
+
+yarn
+
+
 
 # Getting set up with node-addon-module
 
