@@ -5,4 +5,6 @@ var addon = require('bindings')('closedLoop');
 console.time("c++");
 // Call our static function to print hello
 console.log(addon.hello());
+
+const thing = new addon();
 console.timeEnd("c++");

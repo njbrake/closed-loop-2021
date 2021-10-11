@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  cl:
+    container_name: cl
+    # AWS ECR MModal Dev
+    image: cl:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/opt/closedLoop
+    command: ['bash']
