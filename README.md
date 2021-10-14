@@ -6,8 +6,9 @@ This code is to support a node addon module, for extra speed!
 # Quick Start
 
 ```{bash}
-docker build -t cl:latest .
-docker run -it -v $(pwd):/opt/closedLoop cl:latest bash
+docker compose build
+docker compose run cl bash
+# Now we are inside docker container
 yarn install
 yarn start
 ```
